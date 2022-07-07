@@ -1,0 +1,42 @@
+{
+  "name": "image-processing-api",
+  "version": "1.0.0",
+  "description": "api to process image to different sizes as thumbnails",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .js",
+    "prettier": "prettier --config .prettierrc \"src/**/*.js\" --write",
+    "test": "",
+    "start": "nodemon ",
+    "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashvendra-singh/ProjectImageProcessingApi.git"
+  },
+  "author": "yashvendra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yashvendra-singh/ProjectImageProcessingApi/issues"
+  },
+  "homepage": "https://github.com/yashvendra-singh/ProjectImageProcessingApi#readme",
+  "devDependencies": {
+    "@types/jasmine": "^4.0.3",
+    "@types/node": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jasmine": "^4.2.1",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

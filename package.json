@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "api to process image to different sizes as thumbnails",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "lint": "eslint . --ext .js",
-    "prettier": "prettier --config .prettierrc \"src/**/*.js\" --write",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
     "test": "npm run build && npm run jasmine",
     "build": "npx tsc",
-    "jasmine": "jasmine"
+    "jasmine": "jasmine",
+    "start": "nodemon src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/yashvendra-singh/ProjectImageProcessingApi#readme",
   "devDependencies": {
+    "@types/express": "^4.17.13",
     "@types/jasmine": "^4.0.3",
     "@types/node": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.30.3",

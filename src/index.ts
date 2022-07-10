@@ -1,12 +1,10 @@
 import express from 'express';
-import logger from './middleware/logger';
+import routes from './routes/index';
 
 const app = express();
 const port: number = 3000;
 
-app.get('/', logger, (req, res) => {
-    res.send('Welcome to Image Processing Api');
-});
+app.use('/', routes);
 
 app.listen(port, (): void => {
     console.log(`Server started on http://localhost:${port}`);

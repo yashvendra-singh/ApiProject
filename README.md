@@ -1,4 +1,12 @@
-# ApiProject
+# Image Processing Api Project
+
+Commands to setup the project-
+1. npm install - to install all the dependencies
+2. npm run test - to run the unit tests
+3. npm run start - to start the express server
+4. npm run lint - for linting
+5. npm run build - to build the project. This will transpile the TypeScript code to JavaScript
+6. npm run prettier - for formatting
 
 The Image Processing Api is listening on http://localhost:3000
 

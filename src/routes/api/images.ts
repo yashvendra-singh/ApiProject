@@ -20,7 +20,7 @@ routesImages.get('/', (req: express.Request, res: express.Response): void => {
                 count++;
             });
 
-            res.send(`<h3>Images available are -</h3>
+            res.status(200).send(`<h3>Images available are -</h3>
             ${allfiles}`);
         });
     } catch (error) {

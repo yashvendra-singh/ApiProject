@@ -6,7 +6,7 @@ import routesImages from './api/images';
 const routes = express.Router();
 
 routes.get('/', logger, (req, res) => {
-    res.send('Welcome to Image Processing Api');
+    res.status(200).send('Welcome to Image Processing Api');
 });
 
 routes.use('/api/image', logger, routesImage);

@@ -35,7 +35,7 @@ routesImage.get('/', async (req: express.Request, res: express.Response): Promis
                 Example: http:///localhost:3000/api/images`);
             }
         } else {
-            res.status(201).send(`<h2>Please provide image name in url followed by dimensions.</h2>
+            res.status(200).send(`<h2>Please provide image name in url followed by dimensions.</h2>
         
             Example: http:///localhost:3000/image?filename=palmtunnel&width=200&height=200`);
         }

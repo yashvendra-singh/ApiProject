@@ -30,3 +30,5 @@ The images will be stored on src\images.
 1. Full images - src\images\full
 2. Compressed images - src\images\thumbnails
 
+Logging is done through middleware. You can check the logs on console.
+

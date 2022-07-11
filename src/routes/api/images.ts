@@ -1,26 +1,28 @@
 import express from 'express';
-import {isValidImageUrl, getImageDetails} from '../../shared/common';
-import isImageExists from '../../api/images';
+import fs from 'fs';
+import { getDirectoryPath } from '../../shared/common';
 
 const routesImages = express.Router();
 
 routesImages.get('/', (req: express.Request, res: express.Response): void => {
     try {
-        if(isValidImageUrl(req)) {
-            const image = getImageDetails(req);
-
-            if(isImageExists(image[0], image[1], image[2])) {
-
-            } else {
-
+        fs.readdir(getDirectoryPath('full'), function (err, files) {
+            //handling error
+            if (err) {
+                return console.log('Unable to scan directory: ' + err);
             }
+            
+            let allfiles = '<r>';
+            let count = 1;
+            
+            files.forEach(function (file) {
+                allfiles += count + '- ' + file + '<br>'; 
+                count++;
+            });
 
-            res.send(`Image will be displayed`);
-        } else {
-            res.status(500).send(`<h2>Please provide image name in url followed by dimensions.</h2>
-        
-            Example: http:///localhost:3000/image?filename=palmtunnel&width=200&height=200`);
-        }
+            res.send(`<h3>Images available are -</h3>
+            ${allfiles}`);
+        });
     } catch (error) {
         console.log("Error occured " + error);
     }

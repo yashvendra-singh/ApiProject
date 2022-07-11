@@ -1,19 +1,21 @@
 import { Request } from "express";
 import path from "path";
 
+const thumbnails = 'thumbnails';
+const fullpath = 'full';
+
 const isValidImageUrl = (request : Request) : boolean => {
+    const filename : string = (request.query.filename as unknown) as string;
+    const width : string = (request.query.width as unknown) as string;
+    const height : string = (request.query.height as unknown) as string;
 
-    const filename : unknown = request.query.filename;
-        const width : string = (request.query.width as unknown) as string;
-        const height : string = (request.query.height as unknown) as string;
-
-        if(filename === undefined || width === undefined || height === undefined 
-            || filename == '' || isNaN(parseInt(width)) || isNaN(parseInt(height))) {
+    if(filename === undefined || width === undefined || height === undefined 
+        || filename == '' || isNaN(parseInt(width)) || isNaN(parseInt(height))) {
             
-            return false;
-        } else {
-            return true;
-        }
+        return false;
+    } else {
+        return true;
+    }
 }
 
 const getImageDetails = (request : Request) : [string, string, string] => {
@@ -26,7 +28,11 @@ const getImageDetails = (request : Request) : [string, string, string] => {
 }
 
 const getImageFullPath = (type: string, filename: string) : string => {
-    return path.join(__dirname.substring(0, __dirname.length - 6), 'images', type, filename + '.jpg');
+    return path.join(getDirectoryPath(type), filename + '.jpg');
 };
 
-export {isValidImageUrl, getImageDetails, getImageFullPath};
+const getDirectoryPath = (type: string) : string => {
+    return path.join(__dirname.substring(0, __dirname.length - 6), 'images', type);
+};
+
+export {isValidImageUrl, getImageDetails, getImageFullPath, getDirectoryPath, thumbnails, fullpath};

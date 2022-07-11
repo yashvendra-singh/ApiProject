@@ -1,34 +1,28 @@
 import fs from 'fs';
-import path from 'path';
-import { getImageFullPath } from '../shared/common';
-import dirname from 'path';
+import { getImageFullPath, thumbnails, fullpath } from '../shared/common';
 
-import sharp from 'sharp';
+const isImageExists = (filename: string, width: string, height: string): [boolean, boolean, string] => {
+    const imageDirectoryThumbnail = getImageFullPath(thumbnails, filename + width + height);
+    const imageDirectoryFull = getImageFullPath(fullpath, filename);
 
-const isImageExists = (filename: string, width: string, height: string): boolean => {
-    const imageDirectoryThumbnail = getImageFullPath('thumbnails', filename + width + height);
-    const imageDirectoryFull = getImageFullPath('full', filename);
-    console.log('current dir name ' + imageDirectoryThumbnail);
-    console.log('current dir name ' + imageDirectoryFull);
     try {
         if (fs.existsSync(imageDirectoryThumbnail)) {
-            console.log('Cache image exists');
+            console.log(`Cache image exists for image ${filename}`);
             
-            return true;
+            return [true, true, imageDirectoryThumbnail];
         } else if (fs.existsSync(imageDirectoryFull)) {
-            console.log('Cached image does not exists. Converting image from original');
+            console.log('Cached image does not exists for image ${filename}. Converting image from original');
 
-            return true;
+            return [true, false, imageDirectoryFull];
         }
 
-        console.log('File does not exists');
-        return false;
+        console.log(`Image does not exists with ${filename}`);
+        return [false, false, ''];
     } catch(err) {
         console.error(err)
     }
-    
-    return true;
 
+    return [false, false, ''];
 }
 
 

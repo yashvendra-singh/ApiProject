@@ -1,12 +1,4 @@
-# Image Processing Api Project
-
-Commands to setup the project-
-1. npm install - to install all the dependencies
-2. npm run test - to run the unit tests
-3. npm run start - to start the express server
-4. npm run lint - for linting
-5. npm run build - to build the project. This will transpile the TypeScript code to JavaScript
-6. npm run prettier - for formatting
+# ApiProject
 
 The Image Processing Api is listening on http://localhost:3000
 
@@ -24,11 +16,13 @@ This project has having 2 endpoints:
     2. width - specify the desired width
     3. height - specify the desired height
 
-The image can be only be compressed if it listed in endpoint (1).
+The image can be only be compressed if it listed in endpoint 1 
 
-The images will be stored on src\images.
-1. Full images - src\images\full
-2. Compressed images - src\images\thumbnails
+Note: If need to run from dist, first copy the image folder to root of dist
 
-Logging is done through middleware. You can check the logs on console.
-
+dist
+ |
+ |___ images
+ |
+ |
+ index.js
